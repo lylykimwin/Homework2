@@ -3,7 +3,7 @@ $pageTitle = "Reservations";
 include "view-header.php";
 ?>
 <h1>Make a Reservation</h1>
-<form action="reservation-details.php" method="post">
+<form action="reservation-details.php" method="get">
     <div class="mb-3">
         <label for="name" class="form-label">Name:</label>
         <input type="text" class="form-control" id="name" name="name" required>
