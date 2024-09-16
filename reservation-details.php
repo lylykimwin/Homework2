@@ -3,20 +3,28 @@ $pageTitle = "Reservation Details";
 include "view-header.php";
 ?>
 <h1>Reservation Details</h1>
-<ul>
 <?php
-// Fetch reservations from the database or a file
-// Example static list
-$reservations = [
-    ["name" => "John Doe", "date" => "2024-09-20", "time" => "19:00", "guests" => 4],
-    ["name" => "Jane Smith", "date" => "2024-09-21", "time" => "20:00", "guests" => 2]
-];
-
-foreach ($reservations as $reservation) {
-    echo "<li>" . htmlspecialchars($reservation['name']) . " - " . htmlspecialchars($reservation['date']) . " at " . htmlspecialchars($reservation['time']) . " for " . htmlspecialchars($reservation['guests']) . " guests</li>";
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (isset($_GET['name']) && isset($_GET['date']) && isset($_GET['time']) && isset($_GET['guests'])) {
+        // Sanitize and display the reservation details
+        $name = htmlspecialchars($_GET['name']);
+        $date = htmlspecialchars($_GET['date']);
+        $time = htmlspecialchars($_GET['time']);
+        $guests = htmlspecialchars($_GET['guests']);
+        ?>
+        <p>Thank you for your reservation! Here are the details:</p>
+        <ul>
+            <li><strong>Name:</strong> <?php echo $name; ?></li>
+            <li><strong>Date:</strong> <?php echo $date; ?></li>
+            <li><strong>Time:</strong> <?php echo $time; ?></li>
+            <li><strong>Number of Guests:</strong> <?php echo $guests; ?></li>
+        </ul>
+        <?php
+    } else {
+        echo "<p>Incomplete reservation details. Please go back and fill out the form again.</p>";
+    }
+} else {
+    echo "<p>No reservation data submitted.</p>";
 }
-?>
-</ul>
-<?php
 include "view-footer.php";
 ?>
