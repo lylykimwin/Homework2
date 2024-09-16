@@ -2,21 +2,25 @@
 $pageTitle = "Reservations";
 include "view-header.php";
 ?>
-<h1>Reservations</h1>
-<form action="submit-reservation.php" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
-    
-    <label for="date">Date:</label>
-    <input type="date" id="date" name="date" required>
-    
-    <label for="time">Time:</label>
-    <input type="time" id="time" name="time" required>
-    
-    <label for="guests">Number of Guests:</label>
-    <input type="number" id="guests" name="guests" required>
-    
-    <button type="submit">Reserve</button>
+<h1>Make a Reservation</h1>
+<form action="reservation-details.php" method="post">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="mb-3">
+        <label for="date" class="form-label">Date:</label>
+        <input type="date" class="form-control" id="date" name="date" required>
+    </div>
+    <div class="mb-3">
+        <label for="time" class="form-label">Time:</label>
+        <input type="time" class="form-control" id="time" name="time" required>
+    </div>
+    <div class="mb-3">
+        <label for="guests" class="form-label">Number of Guests:</label>
+        <input type="number" class="form-control" id="guests" name="guests" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Reserve</button>
 </form>
 <?php
 include "view-footer.php";
